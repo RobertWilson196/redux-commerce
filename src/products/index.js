@@ -1,4 +1,4 @@
-
+import productTypes from './types';
 
 const initialState = [
 
@@ -24,8 +24,33 @@ const initialState = [
 ];
 
 const reducer = (state=initialState, action) => {
-    console.log('products');
-    return state;
+    switch(action.type){
+        case "ADD_ITEM": {
+        const position = action.payload.value;
+        const selectedItem = state[position];
+        const before = state.slice(0, position);
+        const after = state.slice(position + 1);
+        const newProduct = {
+            ...selectedItem,
+            count: selectedItem.count + 1
+        };
+            return [...before, newProduct, ...after];
+    }
+        case "REMOVE_ITEM": {
+        const position = action.payload.value;
+        const selectedItem = state[position];
+        const before = state.slice(0, position);
+        const after = state.slice(position + 1);
+        const newProduct = {
+            ...selectedItem,
+            count: selectedItem.count === 0 ? 0 : selectedItem.count - 1
+        }
+            return [...before, newProduct, ...after];
+    }
+        default:
+            return state;
+        
+    }
 }
 
 export default reducer;
