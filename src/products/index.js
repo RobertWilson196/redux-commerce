@@ -1,4 +1,5 @@
 import * as types from './types';
+import * as productActions from './actions';
 
 const initialState = [
 
@@ -51,6 +52,7 @@ const reducer = (state=initialState, action) => {
             return state;
         
     }
-}
+};
 
+export {productActions};
 export default reducer;
