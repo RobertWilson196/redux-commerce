@@ -1,4 +1,5 @@
 import * as types from './types';
+import * as searchActions from './actions';
 
 const initialState = "";
 const reducer = (state=initialState, action) => {
@@ -11,4 +12,5 @@ const reducer = (state=initialState, action) => {
     }
 }
 
+export {searchActions};
 export default reducer;
