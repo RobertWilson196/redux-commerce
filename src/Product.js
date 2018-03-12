@@ -8,9 +8,9 @@ const Product = props => {
             <img src={props.imgSrc} alt={props.name} />
             <p>{props.name}</p>
             <p>${props.price}</p>
-            <button onClick = {() => props.addItem(props.position)}>+</button>
+            <button onClick = {() => props.addItem(props.id)}>+</button>
             <span>{props.count}</span>
-            <button onClick = {() => props.removeItem(props.position)}>-</button>
+            <button onClick = {() => props.removeItem(props.id)}>-</button>
         </li>
     );
 }
@@ -18,8 +18,8 @@ const Product = props => {
 const mapStateToProps = null;
 const mapDispatchToProps = dispatch => {
     return {
-        addItem: position => dispatch(productActions.addItem(position)),
-        removeItem: position => dispatch(productActions.removeItem(position))
+        addItem: id => dispatch(productActions.addItem(id)),
+        removeItem: id => dispatch(productActions.removeItem(id))
     }
 };
 
